@@ -1,0 +1,89 @@
+##Magic 8 Ball##
+
+'''
+(str) -> str
+Print one of eight responses to the user's question.
+
+>>> question = input("Will I live until I'm 100 years old?")
+"Ask again later"
+>>> user_question = input("Will I find the love of my life one day?")
+"Don't count on it"
+'''
+
+# Import random and time to randomise responses after a 2-second 'thinking' delay. 
+# Import sys to call on a system exit at the end of the program
+import random
+import time
+import sys
+
+# Print one of 20 responeses, allow user to ask another question or quit.
+responses = ['Yes, I can feel it....', 'Ask again later', 'Better not tell you now..', 'I cannot predict this right now', 'Concentrate harder and ask again', 'Don\'t count on it', 'I\'s absolutely certain', 'Most likely', 'Mmmmm NO.... ', 'The outlook is not good, sorry', 'My fortune-telling goggles are a bit hazy.... wait 5 seconds and try again while I clean these things...', 'My signs point to YES (I hope it\'s a celebration!)', 'I\'m very doubtful', 'Without a doubt!', 'Yes.', 'Oui (Yes)', 'I would say so']
+
+# Ask the user for their name
+name = input('''Welcome to the Magic 8 Ball! (8)                                
+                                      
+What is your name?: ''')
+
+# Prompt the user for a question
+input('''
+Hello ''' + name + ''' , please ask me your question: ''' )
+
+print('''
+
+        Fortune-telling in progress...''')
+
+# Insert a time delay to simulate the 'mind-reading' element of the M8Ball.
+time.sleep(2)
+
+# Space out answers for a cleaner interface.
+print('''
+''')
+# random.choice(mylist) to return a random element from the responses list. 
+print(random.choice(responses))
+
+time.sleep(2)
+
+print('''
+
+I hope you got the answer you were looking for :) ''')
+
+time.sleep(2)
+
+##Prompting the user to choose to either play again or quit.
+replay = input('''
+
+Is there something else you'd like to ask me? [Y/N]?  ''')
+
+if replay == 'Y':
+        input('''
+
+        Well go on, ask me something else: ''')
+        print('''
+
+        Fortune-telling in progress...''')
+        time.sleep(2)
+        print('''
+        ''')
+        print(random.choice(responses))
+        time.sleep(2)
+        print('''
+
+        I hope you got the answer you were looking for!
+        Unfortunately there's a two-question limit right now. Have a good day. ''')  
+        time.sleep(2)
+        print ('''
+
+        Going to sleep... ''')
+        time.sleep(1)
+        print('''
+
+        *yawn* ''')
+        time.sleep(1)
+        sys.exit()
+        
+elif replay == 'N' or 'No':
+        print('''
+
+        Shutting down... ''')
+        time.sleep(2)
+        sys.exit()
